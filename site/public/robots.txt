@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://classroomstack.pages.dev/sitemap-index.xml
+Sitemap: https://solostack.pages.dev/sitemap-index.xml

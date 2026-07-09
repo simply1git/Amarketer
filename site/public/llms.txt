@@ -1,8 +1,8 @@
-# Classroom Stack
+# SoloStack
 
-> Hands-on reviews and comparisons of AI tools for teachers, tutors, and students — lesson planners, quiz generators, writing feedback tools, and study apps. Every tool is tested on real teaching and study tasks before review.
+> Hands-on reviews of AI and automation tools for one-person businesses — funnel builders, email marketing platforms, AI writing and productivity tools. Every tool is tested on real business tasks (usually on its free plan) before review.
 
-Reviews state which tool fits which situation, current pricing at time of testing, and observed limitations. Articles carry publish/update dates; affiliate relationships are disclosed at the top of each affected article.
+Reviews state which tool fits which situation, what the free plan actually includes, current pricing at time of testing, and observed limitations. No income claims. Affiliate relationships are disclosed at the top of each affected article.
 
 ## Pages
 

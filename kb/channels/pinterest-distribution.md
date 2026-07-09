@@ -30,10 +30,10 @@ ai_instructions: >
 # Pinterest Distribution
 
 ## Why this channel
-Teachers and students are heavy Pinterest users for classroom resources; distribution is search-like (pins surface for months, unlike feed socials), matching our evergreen content. It delivers traffic in weeks while Google takes months.
+Side-hustle, productivity, and small-business content is a major Pinterest category; distribution is search-like (pins surface for months, unlike feed socials), matching our evergreen content. It delivers traffic in weeks while Google takes months.
 
 ## Setup (owner, one-time)
-Free business account, claim the website, create 4–6 boards matching content clusters ("AI lesson planning", "teacher productivity", "study tools").
+Free business account, claim the website, create 4–6 boards matching content clusters ("free business tools", "solopreneur productivity", "email marketing", "AI tools tested").
 
 ## Per-post workflow
 1. Derive 3–5 pin concepts from the post: the comparison table, a "which tool for you" decision checklist, a stat callout.

@@ -12,12 +12,13 @@ This is the day-to-day manual. Architecture is in [PLAN.md](../PLAN.md); agent r
 ## One-time launch checklist (owner — ~30 minutes total)
 
 1. **GitHub**: create a free account/repo, push this folder. *(5 min)*
-2. **Cloudflare Pages**: connect the repo — exact clicks in [site/README.md](../site/README.md). Site goes live at `classroomstack.pages.dev`. *(10 min)*
+2. **Cloudflare Pages**: connect the repo — exact clicks in [site/README.md](../site/README.md). Site goes live at `solostack.pages.dev` (or similar). *(10 min)*
 3. **Newsletter**: create a free MailerLite account, paste the form embed where the footer form placeholder is (agent will do the paste — just provide the embed code). *(5 min)*
 4. **Google Search Console**: add the site, submit the sitemap. *(5 min)*
 5. **Pinterest**: free business account, claim the website. *(5 min)*
-6. **Affiliate programs**: sign up for Grammarly's program first (accepts new affiliates, no traffic bar). Paste the real terms + your tracking links to the agent afterward so the KB entries flip to `verified`. Notion/Canva applications come after the site has content.
-7. **Test accounts**: create free accounts on the tools in [cluster 01](content/cluster-01-ai-lesson-planning.md) so the agent can run the hands-on test protocol (account creation is your gate; the testing itself is agent work).
+6. **YouTube**: create a channel (brand account, no face needed). *(5 min)*
+7. **Affiliate programs**: sign up for Systeme.io and Grammarly programs first (both accept new affiliates). Paste the real terms + your tracking links to the agent afterward so the KB entries flip to `verified`. GetResponse/Notion/Canva applications come after the site has content.
+8. **Test accounts**: create free accounts on the 5 tools in [video 01](content/youtube/video-01-package.md) so the agent can run the hands-on test protocol and fill the script's [VERIFY] slots (account creation is your gate; testing is agent work).
 
 ## Weekly operating cycle (steady state)
 

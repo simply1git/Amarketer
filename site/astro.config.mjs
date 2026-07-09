@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 // Update `site` when the custom domain lands; pages.dev subdomain until then.
 export default defineConfig({
-  site: 'https://classroomstack.pages.dev',
+  site: 'https://solostack.pages.dev',
   integrations: [sitemap()],
   trailingSlash: 'never',
 });

@@ -4,7 +4,7 @@ interface Props {
   description: string;
 }
 const { title, description } = Astro.props;
-const siteName = 'Classroom Stack';
+const siteName = 'SoloStack';
 ---
 <html lang="en">
   <head>
@@ -32,7 +32,7 @@ const siteName = 'Classroom Stack';
   </head>
   <body>
     <header>
-      <a class="brand" href="/">Classroom Stack</a>
+      <a class="brand" href="/">SoloStack</a>
       <nav aria-label="Main">
         <a href="/">Reviews &amp; Guides</a>
         <a href="/about">About</a>
@@ -43,15 +43,15 @@ const siteName = 'Classroom Stack';
     </main>
     <footer>
       <section aria-label="Newsletter">
-        <p><strong>One useful classroom-AI find, every week.</strong> Hands-on tested, no fluff.</p>
+        <p><strong>One genuinely useful tool for your one-person business, every week.</strong> Hands-on tested, no hype.</p>
         <!-- Email capture: wire to a free-tier provider before launch (see site/README.md) -->
         <form method="post" action="#" data-todo="newsletter-provider">
-          <input type="email" name="email" placeholder="you@school.edu" required aria-label="Email address" />
+          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
           <button type="submit">Subscribe</button>
         </form>
       </section>
       <p>Some links on this site are affiliate links — see our <a href="/disclosure">disclosure policy</a>.</p>
-      <p>© {new Date().getFullYear()} Classroom Stack. Every tool reviewed here was tested hands-on.</p>
+      <p>© {new Date().getFullYear()} SoloStack. Every tool reviewed here was tested hands-on.</p>
     </footer>
   </body>
 </html>

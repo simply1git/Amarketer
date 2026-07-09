@@ -9,6 +9,8 @@ ai_usage: Master plan. Read before any build work. Research backing every KB dec
 
 # Amarketer — System Plan v1
 
+> **PIVOT (2026-07-09):** direction updated by owner delegation — social-first distribution (YouTube faceless primary, Pinterest secondary, site = link hub), niche = **AI tools for one-person businesses** ("SoloStack"), proven-format modeling. Details: [ops/niche/2026-07-pivot-decision.md](ops/niche/2026-07-pivot-decision.md). Sections below describing "SEO site primary" and the education niche are superseded but kept for history.
+
 ## What we're building
 
 A personal AI affiliate-marketing operator: a Claude-based agent system + a self-improving knowledge base that together take a solo beginner from zero (no niche, no site, no programs) to a running affiliate operation — and get smarter with every campaign.

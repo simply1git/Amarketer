@@ -6,14 +6,15 @@ const posts = (await getCollection('posts', (p) => p.data.status === 'published'
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 <Base
-  title="AI Tools for Teachers & Students, Actually Tested"
-  description="Hands-on reviews and comparisons of AI teaching and study tools — lesson planners, quiz generators, writing feedback and more. Every tool tested for real."
+  title="AI Tools for One-Person Businesses, Actually Tested"
+  description="Hands-on reviews of AI and automation tools for freelancers, creators, and solo founders — funnel builders, email tools, writing assistants. Tested for real."
 >
-  <h1>AI tools for the classroom — actually tested, honestly reviewed</h1>
+  <h1>The tool stack for your one-person business — actually tested</h1>
   <p>
-    Every review here comes from hands-on testing on real teaching and study
-    tasks — not vendor marketing pages. We show you what each tool does well,
-    where it falls apart, and which one fits your situation.
+    Every tool featured here was signed up for, used on real tasks, and pushed
+    until it broke or proved itself. We tell you what each one actually does,
+    what the free plan really includes, and which one fits your situation — no
+    hype, no income promises, just working tools.
   </p>
   {posts.length === 0 ? (
     <p><em>First reviews are in testing right now — subscribe below to get them first.</em></p>
