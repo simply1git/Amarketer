@@ -1,0 +1,47 @@
+---
+title: Amarketer Operating Runbook
+type: runbook
+audience: owner (you) + AI agent
+date: 2026-07-09
+---
+
+# How to Run Amarketer
+
+This is the day-to-day manual. Architecture is in [PLAN.md](../PLAN.md); agent rules in [CLAUDE.md](../CLAUDE.md).
+
+## One-time launch checklist (owner — ~30 minutes total)
+
+1. **GitHub**: create a free account/repo, push this folder. *(5 min)*
+2. **Cloudflare Pages**: connect the repo — exact clicks in [site/README.md](../site/README.md). Site goes live at `classroomstack.pages.dev`. *(10 min)*
+3. **Newsletter**: create a free MailerLite account, paste the form embed where the footer form placeholder is (agent will do the paste — just provide the embed code). *(5 min)*
+4. **Google Search Console**: add the site, submit the sitemap. *(5 min)*
+5. **Pinterest**: free business account, claim the website. *(5 min)*
+6. **Affiliate programs**: sign up for Grammarly's program first (accepts new affiliates, no traffic bar). Paste the real terms + your tracking links to the agent afterward so the KB entries flip to `verified`. Notion/Canva applications come after the site has content.
+7. **Test accounts**: create free accounts on the tools in [cluster 01](content/cluster-01-ai-lesson-planning.md) so the agent can run the hands-on test protocol (account creation is your gate; the testing itself is agent work).
+
+## Weekly operating cycle (steady state)
+
+| Day | Who | What |
+|---|---|---|
+| 1 | Agent | Runs test protocol on next tool(s); writes draft to `ops/content/` (`status: draft`) |
+| 2 | You (10 min) | Read draft; request edits or set `status: approved` |
+| 2 | Agent | Moves approved post into `site/src/content/posts/`; prepares pins + newsletter item |
+| 3 | You (5 min) | Set `status: published`, push (site deploys automatically); post pins; send newsletter |
+| ongoing | Agent | Monitors, researches next programs/topics, maintains KB |
+
+## Monthly cycle
+
+1. You: export CSVs (Search Console, Pinterest, affiliate dashboards) into a folder, tell the agent.
+2. Agent: `python tools/import_report.py <file>` per export → analysis → `kb/learned/` entries with metrics.
+3. Agent: consolidation pass (dedupe learned entries, promote to verified, retire losers).
+4. You: 15-minute review of the agent's monthly summary + any proposed autonomy promotions.
+
+## Guardrails (what the agent will never do without you)
+
+Publish, sign up, spend, or delete verified knowledge. If the agent asks you to do one of these, everything is already prepared — your action is the last step.
+
+## When something breaks
+
+- KB validation fails: `python tools/validate_kb.py` prints which file/field.
+- Site build fails: `cd site && npm run build` — errors name the file; drafts with bad frontmatter are the usual cause.
+- Wrong fact in a published post: tell the agent — it corrects the post *and* the KB entry that sourced it, and records the failure in `learned/`.

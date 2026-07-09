@@ -1,0 +1,19 @@
+---
+// FTC-compliant affiliate disclosure. Must render BEFORE the first affiliate
+// link in any post (kb/policies/ftc-disclosure.md). Rendered automatically at
+// the top of every post with hasAffiliateLinks: true — do not remove.
+interface Props {
+  amazon?: boolean;
+}
+const { amazon = false } = Astro.props;
+---
+<aside class="disclosure" role="note">
+  <p>
+    <em>This post contains affiliate links. If you buy through them, we may earn a
+    commission at no extra cost to you.
+    {amazon && ' As an Amazon Associate I earn from qualifying purchases.'}</em>
+  </p>
+</aside>
+<style>
+  .disclosure { background: var(--soft, #f4f6fb); border-left: 3px solid #c4cbe0; padding: 0.35rem 1rem; margin: 1rem 0 1.5rem; font-size: 0.9rem; color: #4a4a5e; }
+</style>

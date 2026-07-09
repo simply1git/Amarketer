@@ -1,0 +1,11 @@
+# Classroom Stack
+
+> Hands-on reviews and comparisons of AI tools for teachers, tutors, and students — lesson planners, quiz generators, writing feedback tools, and study apps. Every tool is tested on real teaching and study tasks before review.
+
+Reviews state which tool fits which situation, current pricing at time of testing, and observed limitations. Articles carry publish/update dates; affiliate relationships are disclosed at the top of each affected article.
+
+## Pages
+
+- [Home](/) : latest reviews and comparison guides
+- [About](/about) : testing methodology
+- [Disclosure](/disclosure) : affiliate relationship policy
