@@ -17,6 +17,7 @@ Override with --agent-cmd for testing (e.g. a stub script).
 """
 import argparse
 import datetime as dt
+import os
 import re
 import shlex
 import subprocess
@@ -56,7 +57,8 @@ def now_utc():
 
 
 def parse_task(path: Path):
-    text = path.read_text(encoding="utf-8")
+    # utf-8-sig: tolerate BOM from Windows editors
+    text = path.read_text(encoding="utf-8-sig")
     m = FRONTMATTER_RE.match(text)
     if not m:
         return None, None
@@ -127,8 +129,17 @@ def claim(path: Path, fm: dict, body: str, runner: str) -> bool:
     return True
 
 
+def split_cmd(template: str):
+    # posix=False on Windows so backslash paths survive; then strip quoting
+    if os.name == "nt":
+        parts = shlex.split(template, posix=False)
+        return [p[1:-1] if len(p) > 1 and p[0] == p[-1] and p[0] in "\"'" else p
+                for p in parts]
+    return shlex.split(template)
+
+
 def run_agent(cmd_template: str, prompt: str, timeout: int):
-    argv = [prompt if a == "{prompt}" else a for a in shlex.split(cmd_template)]
+    argv = [prompt if a == "{prompt}" else a for a in split_cmd(cmd_template)]
     return sh(*argv, check=False, capture=True, timeout=timeout)
 
 
