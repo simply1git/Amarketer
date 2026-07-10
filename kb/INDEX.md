@@ -18,12 +18,13 @@ One line per entry: **id — when to use it.** Load the full entry only when the
 - `canva-canvassador` — when covering design tools; terms unknown, apply only after site launch.
 - `systeme-io-affiliate` — flagship program; funnel/all-in-one content; ~60% lifetime recurring (unverified).
 - `getresponse-affiliate` — email-marketing content; up to 60% recurring (unverified).
+- `amazon-associates` — Track A product roundups; ~1-4.5% + 24h cookie (unverified); SIGN UP ONLY AFTER pins are clicking (3-sales/180-day rule).
 
 ## offers/
 (empty — populated in Phase 2; every entry here requires valid_until)
 
 ## tactics/
-(empty — populated in Phase 2/3; verified trigger-action playbooks only, never write here directly — see learned/)
+- `pinterest-product-roundups` — Track A engine; weekly batch of product pins + roundup hub pages (fast-earning consumer track).
 
 ## learned/
 (empty — agent-written insights land here as status: unverified with metrics; promoted via consolidation pass)

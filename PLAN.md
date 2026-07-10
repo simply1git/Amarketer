@@ -10,6 +10,8 @@ ai_usage: Master plan. Read before any build work. Research backing every KB dec
 # Amarketer — System Plan v1
 
 > **PIVOT (2026-07-09):** direction updated by owner delegation — social-first distribution (YouTube faceless primary, Pinterest secondary, site = link hub), niche = **AI tools for one-person businesses** ("SoloStack"), proven-format modeling. Details: [ops/niche/2026-07-pivot-decision.md](ops/niche/2026-07-pivot-decision.md). Sections below describing "SEO site primary" and the education niche are superseded but kept for history.
+>
+> **TWO-TRACK UPDATE (2026-07-10, research-validated):** **Track A (fast):** Pinterest product-roundup engine — consumer desk/home-office gear, high pin volume, Amazon Associates once traffic flows ([tactic](kb/tactics/pinterest-product-roundups.md), [cluster 03](ops/content/cluster-03-desk-gear-pinterest.md)). Practitioner-reported first commissions 30–90 days. **Track B (compounding):** recurring-commission SaaS content (cluster 02 videos) — one referral pays monthly. Track A earns first; Track B builds the durable income.
 
 ## What we're building
 
