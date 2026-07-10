@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Update `site` when the custom domain lands; pages.dev subdomain until then.
+// Canonical domain: 25012004.xyz (custom domain on the Cloudflare Pages
+// project "amarketer"; amarketer.pages.dev remains as alias).
 export default defineConfig({
-  site: 'https://solostack.pages.dev',
+  site: 'https://25012004.xyz',
   integrations: [sitemap()],
   trailingSlash: 'never',
 });

@@ -11,6 +11,8 @@ Post 1–3 per day (Pinterest's native scheduler can queue the whole batch in on
 
 **Boards to create first:** `Desk Setup Ideas` · `Home Office On A Budget` · `WFH Tips`
 
+**Pin links:** prepend the domain — e.g. `https://25012004.xyz/posts/desk-upgrades-under-50`.
+
 | Pin image | Title (≤100 chars) | Description | Link to | Board |
 |---|---|---|---|---|
 | 01-desk-upgrades-a | 7 Desk Upgrades Under $50 That Actually Matter | The cheap desk upgrades that make a real difference — honest price bands and what to skip. #affiliate | /posts/desk-upgrades-under-50 | Desk Setup Ideas |
