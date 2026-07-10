@@ -41,6 +41,10 @@ This is the day-to-day manual. Architecture is in [PLAN.md](../PLAN.md); agent r
 
 Publish, sign up, spend, or delete verified knowledge. If the agent asks you to do one of these, everything is already prepared — your action is the last step.
 
+## Autonomous mode (no chat, no subscription)
+
+Assign work from `/admin` → **Agent Tasks** (status `todo`); a free-LLM brain executes it and returns **drafts** — the local runner (every 20 min while the PC is on) or the cloud runner (GitHub Actions, 2×/day + "Run workflow" button, works with the PC off). Watch progress in **Agent Activity Log**. Setup (one free API key): [BRAIN-SETUP.md](BRAIN-SETUP.md). Recurring tasks (weekly content batch, monthly learning loop) re-queue themselves. Publishing still requires your dropdown flip — no brain can bypass it.
+
 ## Automation you get for free
 
 - **Every push**: GitHub Actions validates the KB, lints all content for income claims/missing disclosures, and builds the site. A red X on a commit means something must be fixed before publishing.

@@ -95,6 +95,8 @@ The system is deliberately **model-agnostic**: it is plain files (Markdown KB, P
 
 Practical recommendation: draft revenue-critical content with the strongest model available; use free models for mechanical tasks (report imports, KB validation runs, research summarization). Revisit when volume makes cost material — content quality is the revenue driver, so this is the wrong place to economize first.
 
+**Update (2026-07-10 — subscription independence):** routine automation now runs on two free brains — local free-claude-code (Claude Code harness → free/local backends, Task Scheduler) and cloud gemini-cli (GitHub Actions) — driven by a web-managed task inbox (`ops/tasks/` via /admin). See [ops/BRAIN-SETUP.md](ops/BRAIN-SETUP.md) and kb/reference/open-source-toolchain. Claude sessions remain the premium option for deep work, not a dependency.
+
 ## Channel roadmap (beyond v1)
 
 v1 stays site + Pinterest + newsletter (focus wins for a solo operation). The architecture treats channels as plug-ins: adding one = a new `kb/channels/` playbook + a distribution step in the content pipeline. Expansion order, gated on the previous channel showing traction:

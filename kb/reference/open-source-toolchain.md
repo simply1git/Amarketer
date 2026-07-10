@@ -26,6 +26,8 @@ Design principle (owner, 2026-07-10): **single-user system** — no multi-tenant
 
 ## Adopted
 
+- **free-claude-code** (MIT) — local proxy running the unchanged Claude Code harness against ~24 backends incl. free tiers (Gemini, OpenRouter `:free`, NVIDIA NIM) and local models. Powers the **local autonomous brain** (`tools/run_agent_task.ps1`, Task Scheduler every 20 min). Setup: ops/BRAIN-SETUP.md. Caveat: free models < Claude — owner gate + validators remain the quality firewall.
+- **gemini-cli** (Google, Apache 2.0) — powers the **cloud autonomous brain** (`.github/workflows/agent-task.yml`, free AI Studio key, runs with the PC off); `.gemini/settings.json` points its context file at CLAUDE.md so the same rules load.
 - **pocket-tts** (Kyutai, MIT) — offline CPU TTS, 100M params, ~6x realtime. Wired into `tools/make_voiceover.py --engine pocket`; supports `--clone <audio>` for a consistent owned channel voice. **Tested working.** edge-tts remains the default (higher polish) — pocket is the no-cloud fallback and the voice-cloning path.
 - **STORM's method** (Stanford, MIT) — *not running the software* (needs paid LLM+search API keys; our agent already does grounded research). Adopted its two techniques into our drafting protocol: (1) perspective-guided questioning — before drafting, enumerate 3-4 reader perspectives (skeptic, beginner, budget-constrained, power user) and research the questions each would ask; (2) simulated expert QA — interrogate the draft against sources before publishing.
 

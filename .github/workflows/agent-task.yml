@@ -1,0 +1,41 @@
+name: Agent task runner (cloud brain)
+on:
+  schedule:
+    - cron: "30 3,15 * * *" # twice daily
+  workflow_dispatch: {} # "Run workflow" button = run a task now
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agent-task
+  cancel-in-progress: false
+
+jobs:
+  run-task:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install pyyaml jsonschema
+      - run: npm install -g @google/gemini-cli
+      - name: Configure git identity
+        run: |
+          git config user.name "amarketer-agent"
+          git config user.email "amarketer-agent@users.noreply.github.com"
+      - name: Run one task
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "GEMINI_API_KEY secret not set — skipping (see ops/BRAIN-SETUP.md)"; exit 0;
+          fi
+          python tools/run_agent_task.py --runner cloud

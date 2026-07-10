@@ -43,6 +43,39 @@ collections:
       - { name: amazon, label: Contains Amazon links (adds required Amazon sentence), widget: boolean, default: false }
       - { name: body, label: Article body, widget: markdown }
 
+  - name: agent-tasks
+    label: Agent Tasks (assign work here)
+    folder: ops/tasks
+    create: true
+    extension: md
+    format: frontmatter
+    summary: "{{title}} — {{fields.status}}"
+    sortable_fields: [status, priority, created]
+    fields:
+      - { name: title, label: Task title, widget: string }
+      - name: status
+        label: Status
+        widget: select
+        options: [todo, in-progress, done, blocked]
+        default: todo
+        hint: "Set to 'todo' to queue it — a runner picks it up automatically (local: ~20 min; cloud: next scheduled run or the GitHub 'Run workflow' button). Results come back as drafts."
+      - { name: priority, label: Priority, widget: select, options: [high, normal, low], default: normal }
+      - { name: runner, label: Runner, widget: select, options: [any, local, cloud], default: any }
+      - { name: recurring, label: Recurring, widget: select, options: [none, weekly, monthly], default: none, required: false }
+      - { name: created, label: Created, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { name: last_run, label: Last run (auto), widget: string, required: false }
+      - { name: claimed_by, label: Claimed by (auto), widget: string, required: false }
+      - { name: body, label: Instructions for the agent, widget: markdown, hint: "Write what you want done, like briefing a capable assistant. Reference repo paths where useful." }
+
+  - name: agent-activity
+    label: Agent Activity Log
+    files:
+      - name: activity
+        label: Activity log (read-only by convention)
+        file: ops/agent-activity.md
+        fields:
+          - { name: body, label: Log, widget: markdown }
+
   - name: content-plans
     label: Content Plans & Pin Batches
     folder: ops/content
