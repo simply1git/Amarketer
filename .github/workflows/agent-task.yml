@@ -22,20 +22,37 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
       - run: pip install pyyaml jsonschema
-      - run: npm install -g @google/gemini-cli
       - name: Configure git identity
         run: |
           git config user.name "amarketer-agent"
           git config user.email "amarketer-agent@users.noreply.github.com"
-      - name: Run one task
+
+      # Brain selection: OpenRouter (primary, owner's choice) or Gemini (alternative).
+      # Set ONE repo secret: OPENROUTER_API_KEY (openrouter.ai -> Keys) or GEMINI_API_KEY.
+      # Optional repo variable OPENROUTER_MODEL overrides the default free model
+      # (browse free models: https://openrouter.ai/models?q=free).
+      - name: Run one task (OpenRouter via aider)
+        if: ${{ env.OPENROUTER_API_KEY != '' }}
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openrouter/deepseek/deepseek-chat-v3.1:free' }}
+        run: |
+          pip install aider-chat
+          python tools/run_agent_task.py --runner cloud \
+            --agent-cmd "aider --model $OPENROUTER_MODEL --yes-always --no-auto-commits --no-check-update --message {prompt}"
+
+      - name: Run one task (Gemini fallback)
+        if: ${{ env.OPENROUTER_API_KEY == '' && env.GEMINI_API_KEY != '' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          if [ -z "$GEMINI_API_KEY" ]; then
-            echo "GEMINI_API_KEY secret not set — skipping (see ops/BRAIN-SETUP.md)"; exit 0;
-          fi
-          python tools/run_agent_task.py --runner cloud
+          npm install -g @google/gemini-cli
+          python tools/run_agent_task.py --runner cloud --agent-cmd "gemini --yolo -p {prompt}"
+
+      - name: No key configured
+        if: ${{ env.OPENROUTER_API_KEY == '' && env.GEMINI_API_KEY == '' }}
+        run: echo "No OPENROUTER_API_KEY or GEMINI_API_KEY secret set — see ops/BRAIN-SETUP.md. Exiting harmlessly."
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

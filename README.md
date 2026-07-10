@@ -3,6 +3,7 @@
 A self-improving, AI-operated affiliate marketing system for a solo owner. Open-source and free-tier only.
 
 **Start here:**
+- [STATUS.md](STATUS.md) — **current state, owner checklist, and how to resume work in a new session**
 - [ops/RUNBOOK.md](ops/RUNBOOK.md) — how to operate it (launch checklist + weekly/monthly cycles)
 - [PLAN.md](PLAN.md) — architecture, decisions, phases, model strategy
 - [CLAUDE.md](CLAUDE.md) — rules the AI agent operates under (factual discipline, human gates)
