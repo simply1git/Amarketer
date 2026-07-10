@@ -54,6 +54,33 @@ def validate_file(path: Path, validator: Draft202012Validator):
     return errors
 
 
+def cross_check(entries, kb_dir):
+    """Referential integrity: related/supersedes ids must exist; every entry
+    must be listed in INDEX.md. Returns list of error strings."""
+    errors = []
+    ids = {}
+    for path in entries:
+        fm = extract_frontmatter(path.read_text(encoding="utf-8"))
+        if isinstance(fm, dict) and isinstance(fm.get("id"), str):
+            ids[fm["id"]] = fm
+
+    for entry_id, fm in ids.items():
+        refs = list(fm.get("related") or []) + list(fm.get("supersedes") or [])
+        if fm.get("superseded_by"):
+            refs.append(fm["superseded_by"])
+        for ref in refs:
+            if isinstance(ref, str) and ref not in ids:
+                errors.append(f"{entry_id}: references unknown entry id '{ref}'")
+
+    index_path = kb_dir / "INDEX.md"
+    if index_path.exists():
+        index_text = index_path.read_text(encoding="utf-8")
+        for entry_id, fm in ids.items():
+            if fm.get("status") != "deprecated" and f"`{entry_id}`" not in index_text:
+                errors.append(f"{entry_id}: missing from kb/INDEX.md (add a when-to-use line)")
+    return errors
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--kb-dir", default="kb")
@@ -76,8 +103,13 @@ def main():
             print(f"FAIL {path}")
             for e in errors:
                 print(f"  - {e}")
-    print(f"\n{len(entries) - failed}/{len(entries)} entries valid")
-    return 1 if failed else 0
+
+    ref_errors = cross_check(entries, kb_dir)
+    for e in ref_errors:
+        print(f"XREF {e}")
+
+    print(f"\n{len(entries) - failed}/{len(entries)} entries valid, {len(ref_errors)} cross-reference error(s)")
+    return 1 if (failed or ref_errors) else 0
 
 
 if __name__ == "__main__":

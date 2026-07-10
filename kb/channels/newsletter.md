@@ -4,9 +4,10 @@ type: channel
 name: Newsletter playbook
 description: Use when writing the weekly issue, wiring the signup form, or planning email monetization.
 summary: >
-  Owned-audience channel from day one. Weekly short issue ("one useful
-  classroom-AI find per week") built from the week's testing notes. Free-tier
-  provider; email list is the hedge against search volatility.
+  Owned-audience channel from day one. Weekly short issue ("one genuinely
+  useful tool for your one-person business per week") built from the week's
+  testing notes. Free-tier provider; the email list is the hedge against
+  platform/algorithm volatility.
 source:
   origin: synthesized from standard creator-newsletter practice; provider choice pending
   retrieved: 2026-07-09

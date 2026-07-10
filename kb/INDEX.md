@@ -14,7 +14,7 @@ One line per entry: **id — when to use it.** Load the full entry only when the
 
 ## programs/
 - `grammarly-affiliate` — when recommending Grammarly or shortlisting signups; CPA $0.20/signup + $20/premium (unverified), 90-day cookie.
-- `notion-affiliate` — when recommending Notion for study/teaching systems; 50%×12mo recurring (unverified; direct program may be closed to new applicants).
+- `notion-affiliate` — when recommending Notion as a one-person business HQ; 50%×12mo recurring (unverified; direct program may be closed to new applicants).
 - `canva-canvassador` — when covering design tools; terms unknown, apply only after site launch.
 - `systeme-io-affiliate` — flagship program; funnel/all-in-one content; ~60% lifetime recurring (unverified).
 - `getresponse-affiliate` — email-marketing content; up to 60% recurring (unverified).

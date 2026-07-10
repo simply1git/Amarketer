@@ -2,7 +2,7 @@
 id: notion-affiliate
 type: program
 name: Notion Affiliate Program
-description: Use when drafting content recommending Notion for study systems, lesson planning, or classroom organization.
+description: Use when drafting content recommending Notion as a one-person business HQ (client tracking, content calendar, SOPs, dashboards).
 summary: >
   50% recurring commission for 12 months on Plus/Business/AI upgrades, 180-day
   conversion window. CAUTION: direct program reported closed to new applicants
@@ -25,4 +25,4 @@ ai_instructions: Confirm application status directly at notion.com/affiliates be
 - **Commissions (indicative):** 50% recurring for 12 months on paid upgrades (Plus, Business, AI plans); no earning cap.
 - **Attribution:** net-new workspace upgrading within 180 days of click.
 - **Access risk:** multiple 2026 sources report the direct program is closed to new applications; some route via networks (e.g., Cuelinks). Verify directly.
-- **Fit:** Notion is a cornerstone of student study-system and teacher-planning content — high-intent topics ("Notion for teachers", "student dashboard templates") that our agent can hands-on test on the free tier.
+- **Fit:** Notion is a cornerstone of solo-business-HQ content — high-intent topics ("Notion for freelancers", "one-person business dashboard", "client tracker template") that our agent can hands-on test on the free tier. Video 5 of cluster 02 is built on it.

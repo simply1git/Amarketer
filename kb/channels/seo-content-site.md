@@ -4,9 +4,10 @@ type: channel
 name: SEO niche content site playbook
 description: Use when planning site structure, choosing what to write, drafting articles, or doing on-page SEO for the niche site.
 summary: >
-  v1 primary channel. Static site on free-tier hosting. Content strategy is
-  bottom-of-funnel first (buyer-intent keywords), topical clusters, E-E-A-T
-  signals, and strict compliance with ftc-disclosure.
+  Link-hub + SEO channel (secondary since the 2026-07 pivot; youtube-faceless
+  is primary). Static site on free-tier hosting hosts the written breakdowns
+  videos and pins link to, and carries the /go/ affiliate redirects. Content
+  strategy: bottom-of-funnel buyer-intent keywords, E-E-A-T, ftc-disclosure.
 source:
   origin: synthesized from standard solo-affiliate SEO practice; to be refined by learned/ entries with real metrics
   retrieved: 2026-07-09
@@ -16,7 +17,7 @@ updated: 2026-07-09
 confidence:
   level: medium
   basis: widely-replicated practice, not yet validated by our own campaign data
-related: [ftc-disclosure]
+related: [ftc-disclosure, youtube-faceless, no-income-claims]
 triggers:
   - "IF choosing what to write first THEN prioritize bottom-of-funnel buyer-intent keywords (best-X-for-Y, X-vs-Y, X-review) over informational topics"
   - "IF an article mentions a product we have an offer entry for THEN link with the tracked affiliate link and cite the offer entry id in the draft's frontmatter"
@@ -27,7 +28,9 @@ ai_instructions: >
   pass the ftc-disclosure triggers before being proposed for approval.
 ---
 
-# SEO Niche Content Site — Playbook
+# Site (Link Hub + SEO) — Playbook
+
+> Role changed at the 2026-07 pivot: the site is the link hub behind YouTube/Pinterest (hosts written breakdowns + /go/ redirects); SEO traffic is a compounding byproduct, not the primary strategy. See ops/niche/2026-07-pivot-decision.md.
 
 ## Stack (open-source, $0)
 

@@ -4,9 +4,10 @@ type: program
 name: Grammarly Affiliate Program
 description: Use when drafting content that could recommend Grammarly, or when preparing the program-signup shortlist.
 summary: >
-  Writing/AI feedback tool, core product for students and teachers. Pays per
+  Writing/AI feedback tool — client emails, proposals, content drafts. Pays per
   action ($0.20 free signup, $20 premium purchase), 90-day cookie, no minimum
-  payout. Beginner-accessible; strong fit for student-focused content.
+  payout. Beginner-accessible; the free-signup bounty monetizes even
+  non-buying audiences.
 source:
   origin: https://www.grammarly.com/affiliates (terms cross-checked via getlasso.co and uppromote.com directories)
   retrieved: 2026-07-09
@@ -26,5 +27,5 @@ ai_instructions: Do not quote these rates in published content until status is v
 - **Cookie:** 90 days, last-click.
 - **Payout:** no minimum reported.
 - **Qualified action conditions:** real user, completes signup fully, not refunded/chargebacked.
-- **Fit:** the free-signup bounty is unusual — content targeting students (who rarely buy) still monetizes. Good first program.
+- **Fit:** the free-signup bounty is unusual — audiences that don't buy still monetize on signups. Angle for our niche: polished client communication (emails, proposals, deliverables) as a freelancer credibility tool. Good first program.
 - **Verify at signup:** current rates, allowed promotion methods (some programs ban bidding on brand keywords), payment methods available in owner's country.

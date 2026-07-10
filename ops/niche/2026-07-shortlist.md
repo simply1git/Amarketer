@@ -1,7 +1,7 @@
 ---
 title: Niche Selection — Research, Scoring, Recommendation
 type: decision-record
-status: decided — owner delegated selection to agent (2026-07-09); Niche A confirmed. Amazon Associates adopted as phase-2 secondary monetization (after traffic, to protect the 3-sales/180-day requirement)
+status: SUPERSEDED by 2026-07-pivot-decision.md — Niche A (education) was replaced by "AI tools for one-person businesses" after owner feedback; kept for history. Amazon-as-phase-2 decision still stands.
 date: 2026-07-09
 ---
 

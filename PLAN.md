@@ -93,7 +93,7 @@ Practical recommendation: draft revenue-critical content with the strongest mode
 
 v1 stays site + Pinterest + newsletter (focus wins for a solo operation). The architecture treats channels as plug-ins: adding one = a new `kb/channels/` playbook + a distribution step in the content pipeline. Expansion order, gated on the previous channel showing traction:
 1. **YouTube** (screen-recorded tool walkthroughs — our hands-on testing already produces the material; highest affiliate conversion of any channel)
-2. **Reddit / Quora** (answer-marketing in teacher/edtech communities; strict self-promotion norms — needs its own compliance playbook)
+2. **Reddit / Quora** (answer-marketing in freelancer/solopreneur/small-business communities; strict self-promotion norms — needs its own compliance playbook)
 3. **Medium / LinkedIn syndication** (republishing with canonical links; near-zero marginal cost)
 4. **X / Threads / Facebook groups** (community presence; higher upkeep, lowest per-post return)
 

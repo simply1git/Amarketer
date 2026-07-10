@@ -24,10 +24,10 @@ This is the day-to-day manual. Architecture is in [PLAN.md](../PLAN.md); agent r
 
 | Day | Who | What |
 |---|---|---|
-| 1 | Agent | Runs test protocol on next tool(s); writes draft to `ops/content/` (`status: draft`) |
-| 2 | You (10 min) | Read draft; request edits or set `status: approved` |
-| 2 | Agent | Moves approved post into `site/src/content/posts/`; prepares pins + newsletter item |
-| 3 | You (5 min) | Set `status: published`, push (site deploys automatically); post pins; send newsletter |
+| 1 | Agent | Runs test protocol on next tool(s); fills the video package (script, description, titles) + hub-page draft (`status: draft`) |
+| 2 | You (10 min) | Read the package; request edits or set `status: approved` |
+| 2 | Agent | Generates voiceover mp3s (`make_voiceover.py`) + pins (`make-pin.mjs`); moves approved hub page into `site/src/content/posts/` |
+| 3 | You (20–30 min) | Assemble video in a free editor (screen captures + generated voiceover), upload to YouTube; set hub page `status: published`, push; post pins; send newsletter |
 | ongoing | Agent | Monitors, researches next programs/topics, maintains KB |
 
 ## Monthly cycle

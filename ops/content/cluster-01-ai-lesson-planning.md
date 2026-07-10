@@ -1,7 +1,7 @@
 ---
 title: "Content Cluster 01: AI Lesson-Planning Tools"
 type: content-plan
-status: approved-for-drafting
+status: RETIRED — superseded by cluster-02-solo-ai-stack.md at the 2026-07 niche pivot; kept for history, do not draft from this
 date: 2026-07-09
 cluster: ai-lesson-planning
 ---
