@@ -41,6 +41,14 @@ This is the day-to-day manual. Architecture is in [PLAN.md](../PLAN.md); agent r
 
 Publish, sign up, spend, or delete verified knowledge. If the agent asks you to do one of these, everything is already prepared — your action is the last step.
 
+## Automation you get for free
+
+- **Every push**: GitHub Actions validates the KB, lints all content for income claims/missing disclosures, and builds the site. A red X on a commit means something must be fixed before publishing.
+- **Monthly**: a KB-freshness issue is opened automatically listing expired/stale program data needing re-verification.
+- **Affiliate links**: all content uses `/go/<program>` URLs. Real tracking links get pasted once into `site/public/_redirects` — every video description, pin, and post updates instantly.
+- **Voiceovers**: `python tools/make_voiceover.py <video-package.md>` produces mp3 narration per section (free Microsoft TTS) — no recording needed.
+- **Pins**: `node site/scripts/make-pin.mjs --title "..." --items "A|B|C"` renders finished 1000×1500 pin images.
+
 ## When something breaks
 
 - KB validation fails: `python tools/validate_kb.py` prints which file/field.

@@ -1,0 +1,12 @@
+# Affiliate link redirect layer (Cloudflare Pages _redirects).
+# Convention: all affiliate links in content use /go/<program-id>.
+# Swap the destination here once real tracking links exist — every video
+# description, pin, and post updates instantly, no content edits.
+# 302 (not 301) so destinations stay swappable and uncached.
+
+/go/systeme-io   /   302
+/go/getresponse  /   302
+/go/grammarly    /   302
+/go/notion       /   302
+/go/canva        /   302
+/go/mailerlite   /   302
