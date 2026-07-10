@@ -18,7 +18,7 @@ const jsonLd = {
   description: post.data.description,
   datePublished: post.data.pubDate.toISOString(),
   ...(post.data.updatedDate && { dateModified: post.data.updatedDate.toISOString() }),
-  author: { '@type': 'Organization', name: 'Classroom Stack' },
+  author: { '@type': 'Organization', name: 'SoloStack' },
 };
 ---
 <Base title={post.data.title} description={post.data.description}>

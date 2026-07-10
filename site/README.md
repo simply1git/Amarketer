@@ -1,4 +1,4 @@
-# Classroom Stack — site
+# SoloStack — site
 
 Astro static site. Free-tier stack: Cloudflare Pages + GitHub.
 
@@ -21,7 +21,7 @@ Required frontmatter: `title`, `description`, `pubDate`, `targetKeyword`, `clust
 1. Create a free GitHub repo, push this project.
 2. Cloudflare Dashboard → Workers & Pages → Create → Pages → connect the repo.
 3. Build settings: framework preset **Astro**, root directory `site`, build command `npm run build`, output `dist`.
-4. Site goes live at `classroomstack.pages.dev` (or chosen subdomain — then update `site` in astro.config.mjs and robots.txt).
+4. Site goes live at `solostack.pages.dev` (or whatever project name you chose — then update `site` in astro.config.mjs and robots.txt to match).
 
 ## Before launch checklist
 
