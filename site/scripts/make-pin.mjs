@@ -19,7 +19,7 @@ const { values: args } = parseArgs({
   options: {
     title: { type: 'string' },
     items: { type: 'string', default: '' },
-    tag: { type: 'string', default: '25012004.xyz' },
+    tag: { type: 'string', default: 'solostack.25012004.xyz' },
     out: { type: 'string', default: 'pin.png' },
   },
 });
