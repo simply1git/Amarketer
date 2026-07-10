@@ -45,9 +45,19 @@ def lint_file(path: Path):
             if pattern.search(line):
                 problems.append((severity, lineno, message, line.strip()[:90]))
     # disclosure presence: any publishable file that references affiliate
-    # mechanics must contain disclosure language somewhere
-    if AFFILIATE_HINT.search(text) and not DISCLOSURE_HINT.search(text) and not PLANNING_TYPES.search(text):
-        problems.append(("ERROR", 0, "affiliate content without disclosure language (ftc-disclosure)", ""))
+    # mechanics must contain disclosure language somewhere. Site posts are
+    # covered structurally: Disclosure.astro renders above the content whenever
+    # frontmatter has `hasAffiliateLinks: true`, so that flag satisfies the rule
+    # — and affiliate-flavored posts with the flag OFF are the dangerous case.
+    has_flag_true = re.search(r"^hasAffiliateLinks:\s*true", text, re.M)
+    is_site_post = "site" in path.parts and "posts" in path.parts
+    if AFFILIATE_HINT.search(text) and not PLANNING_TYPES.search(text):
+        if is_site_post:
+            if not has_flag_true:
+                problems.append(("ERROR", 0,
+                    "post references affiliate content but hasAffiliateLinks is not true — template will not render the disclosure (ftc-disclosure)", ""))
+        elif not DISCLOSURE_HINT.search(text):
+            problems.append(("ERROR", 0, "affiliate content without disclosure language (ftc-disclosure)", ""))
     return problems
 
 
