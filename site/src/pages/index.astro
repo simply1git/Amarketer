@@ -9,17 +9,25 @@ const posts = (await getCollection('posts', (p) => p.data.status === 'published'
   title="AI Tools for One-Person Businesses, Actually Tested"
   description="Hands-on reviews of AI and automation tools for freelancers, creators, and solo founders — funnel builders, email tools, writing assistants. Tested for real."
 >
-  <h1>The tool stack for your one-person business — actually tested</h1>
-  <p>
+  <span class="kicker">Tested, not hyped</span>
+  <h1>The tool stack for your one&#8209;person business — actually tested</h1>
+  <p class="lede">
     Every tool featured here was signed up for, used on real tasks, and pushed
-    until it broke or proved itself. We tell you what each one actually does,
-    what the free plan really includes, and which one fits your situation — no
-    hype, no income promises, just working tools.
+    until it broke or proved itself. What each one actually does, what the free
+    plan really includes, and which one fits your situation.
   </p>
+
+  <ul class="principles">
+    <li><strong>Hands-on tested</strong> Real accounts, real tasks, real screenshots — never vendor marketing.</li>
+    <li><strong>Free plan first</strong> We start where you'll start: on the $0 tier, and report where it ends.</li>
+    <li><strong>No income promises</strong> We review tools, not dreams. What it does, what it costs, nothing else.</li>
+  </ul>
+
+  <h2>Latest reviews &amp; guides</h2>
   {posts.length === 0 ? (
     <p><em>First reviews are in testing right now — subscribe below to get them first.</em></p>
   ) : (
-    <ul>
+    <ul class="cards">
       {posts.map((post) => (
         <li>
           <a href={`/posts/${post.id}`}>{post.data.title}</a>

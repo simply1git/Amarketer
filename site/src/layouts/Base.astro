@@ -14,44 +14,127 @@ const siteName = 'SoloStack';
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <style>
-      :root { --ink: #1a1a2e; --muted: #5c5c70; --accent: #2563eb; --bg: #ffffff; --soft: #f4f6fb; }
+    <style is:global>
+      :root {
+        --ink: #16161f;
+        --muted: #5b5b6e;
+        --accent: #2563eb;
+        --accent-ink: #1d4ed8;
+        --bg: #ffffff;
+        --soft: #f5f7fc;
+        --line: #e6e9f2;
+        --card: #ffffff;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --ink: #e8e9f0;
+          --muted: #9a9cb0;
+          --accent: #6d9bff;
+          --accent-ink: #8db0ff;
+          --bg: #101018;
+          --soft: #181826;
+          --line: #262738;
+          --card: #16162280;
+        }
+      }
       * { box-sizing: border-box; }
-      body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--ink); background: var(--bg); line-height: 1.65; }
-      header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-      header { display: flex; align-items: baseline; justify-content: space-between; padding-top: 1.5rem; padding-bottom: 1rem; }
-      header a.brand { font-weight: 700; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
-      header nav a { color: var(--muted); text-decoration: none; margin-left: 1rem; }
-      main { padding-bottom: 3rem; }
-      h1 { line-height: 1.25; }
-      a { color: var(--accent); }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+      .wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.4rem; }
+      header.site {
+        border-bottom: 1px solid var(--line);
+        background: var(--bg);
+      }
+      header.site .wrap {
+        display: flex; align-items: center; justify-content: space-between;
+        padding-top: 1.1rem; padding-bottom: 1.1rem;
+      }
+      a.brand {
+        font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em;
+        color: var(--ink); text-decoration: none;
+      }
+      a.brand span { color: var(--accent); }
+      nav.main a {
+        color: var(--muted); text-decoration: none; margin-left: 1.4rem;
+        font-size: 0.95rem; font-weight: 500;
+      }
+      nav.main a:hover { color: var(--accent); }
+      main { padding: 2.8rem 0 4rem; }
+      h1 { line-height: 1.2; letter-spacing: -0.02em; font-size: 2.1rem; margin: 0 0 1rem; }
+      h2 { letter-spacing: -0.01em; margin-top: 2.4rem; }
+      a { color: var(--accent-ink); }
+      .lede { font-size: 1.12rem; color: var(--muted); }
+      .kicker {
+        display: inline-block; font-size: 0.78rem; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+        margin-bottom: 0.9rem;
+      }
+      ul.cards { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1rem; }
+      ul.cards li {
+        border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.3rem;
+        background: var(--card);
+      }
+      ul.cards li a { font-weight: 700; text-decoration: none; font-size: 1.08rem; }
+      ul.cards li a:hover { text-decoration: underline; }
+      ul.cards li p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.97rem; }
+      .principles { display: grid; gap: 0.9rem; grid-template-columns: repeat(3, 1fr); margin: 2.2rem 0 0; padding: 0; list-style: none; }
+      .principles li {
+        background: var(--soft); border-radius: 12px; padding: 0.9rem 1rem;
+        font-size: 0.92rem; color: var(--muted);
+      }
+      .principles li strong { display: block; color: var(--ink); font-size: 0.97rem; margin-bottom: 0.15rem; }
+      @media (max-width: 640px) { .principles { grid-template-columns: 1fr; } h1 { font-size: 1.7rem; } }
       article :global(table) { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
-      article :global(th), article :global(td) { border: 1px solid #d9dce6; padding: 0.5rem 0.75rem; text-align: left; }
-      footer { border-top: 1px solid #e5e7f0; padding-top: 1.5rem; padding-bottom: 2.5rem; color: var(--muted); font-size: 0.9rem; }
+      article :global(th), article :global(td) { border: 1px solid var(--line); padding: 0.5rem 0.75rem; text-align: left; }
+      footer.site { border-top: 1px solid var(--line); background: var(--soft); }
+      footer.site .wrap { padding-top: 2.2rem; padding-bottom: 2.6rem; color: var(--muted); font-size: 0.92rem; }
+      footer.site .newsletter p { margin-top: 0; font-size: 1rem; }
+      footer.site .newsletter strong { color: var(--ink); }
+      form.subscribe { display: flex; gap: 0.6rem; max-width: 26rem; margin: 0.8rem 0 1.6rem; }
+      form.subscribe input {
+        flex: 1; padding: 0.65rem 0.9rem; border-radius: 10px; border: 1px solid var(--line);
+        background: var(--bg); color: var(--ink); font-size: 0.95rem;
+      }
+      form.subscribe button {
+        padding: 0.65rem 1.2rem; border-radius: 10px; border: none; cursor: pointer;
+        background: var(--accent); color: #fff; font-weight: 700; font-size: 0.95rem;
+      }
+      form.subscribe button:hover { background: var(--accent-ink); }
     </style>
   </head>
   <body>
-    <header>
-      <a class="brand" href="/">SoloStack</a>
-      <nav aria-label="Main">
-        <a href="/">Reviews &amp; Guides</a>
-        <a href="/about">About</a>
-      </nav>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">Solo<span>Stack</span></a>
+        <nav class="main" aria-label="Main">
+          <a href="/">Reviews &amp; Guides</a>
+          <a href="/about">About</a>
+        </nav>
+      </div>
     </header>
-    <main>
+    <main class="wrap">
       <slot />
     </main>
-    <footer>
-      <section aria-label="Newsletter">
-        <p><strong>One genuinely useful tool for your one-person business, every week.</strong> Hands-on tested, no hype.</p>
-        <!-- Email capture: wire to a free-tier provider before launch (see site/README.md) -->
-        <form method="post" action="#" data-todo="newsletter-provider">
-          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
-          <button type="submit">Subscribe</button>
-        </form>
-      </section>
-      <p>Some links on this site are affiliate links — see our <a href="/disclosure">disclosure policy</a>.</p>
-      <p>© {new Date().getFullYear()} SoloStack. Every tool reviewed here was tested hands-on.</p>
+    <footer class="site">
+      <div class="wrap">
+        <section class="newsletter" aria-label="Newsletter">
+          <p><strong>One genuinely useful tool for your one-person business, every week.</strong><br/>Hands-on tested, no hype.</p>
+          <!-- Email capture: wire to a free-tier provider before launch (see site/README.md) -->
+          <form class="subscribe" method="post" action="#" data-todo="newsletter-provider">
+            <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </section>
+        <p>Some links on this site are affiliate links — see our <a href="/disclosure">disclosure policy</a>.</p>
+        <p>© {new Date().getFullYear()} SoloStack. Every tool reviewed here was tested hands-on.</p>
+      </div>
     </footer>
   </body>
 </html>
