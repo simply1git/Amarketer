@@ -1,0 +1,58 @@
+# Sveltia CMS config — web admin for the Amarketer system.
+# Login: GitHub (single user: the repo owner). Every save = a commit to main,
+# which triggers CI (KB validation + compliance lint) and auto-deploy.
+#
+# SETUP (one-time): deploy the auth worker and replace base_url below —
+# see ops/ADMIN-SETUP.md for the 10-minute walkthrough.
+
+backend:
+  name: github
+  repo: simply1git/Amarketer
+  branch: main
+  # REPLACE after deploying sveltia-cms-auth worker (ops/ADMIN-SETUP.md):
+  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+
+site_url: https://amarketer.25012004.xyz
+media_folder: site/public/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: Site Posts (approve here)
+    folder: site/src/content/posts
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{fields.title | slugify}}"
+    summary: "{{title}} — {{fields.status}}"
+    sortable_fields: [status, pubDate, title]
+    fields:
+      - { name: title, label: Title, widget: string, hint: "Max 70 chars" }
+      - { name: description, label: Meta description, widget: string, hint: "Max 160 chars" }
+      - { name: pubDate, label: Publish date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - name: status
+        label: Status (the publish gate)
+        widget: select
+        options: [draft, approved, published]
+        default: draft
+        hint: "Only 'published' posts appear on the live site. Flipping this and saving IS the approval."
+      - { name: targetKeyword, label: Target keyword, widget: string }
+      - { name: cluster, label: Cluster, widget: string, default: desk-gear }
+      - { name: offers, label: KB offer/program ids used, widget: list, default: [], required: false }
+      - { name: hasAffiliateLinks, label: Has affiliate links (renders disclosure), widget: boolean, default: true }
+      - { name: amazon, label: Contains Amazon links (adds required Amazon sentence), widget: boolean, default: false }
+      - { name: body, label: Article body, widget: markdown }
+
+  - name: content-plans
+    label: Content Plans & Pin Batches
+    folder: ops/content
+    create: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: type, label: Type, widget: string, default: content-plan }
+      - { name: status, label: Status, widget: string, default: active }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { name: cluster, label: Cluster, widget: string, required: false }
+      - { name: body, label: Body, widget: markdown }
