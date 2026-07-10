@@ -79,6 +79,10 @@ Human gates are enforced by convention + frontmatter state (`status: draft → a
 12. Scheduled consolidation pass: dedupe, resolve contradictions, promote `unverified → verified` tactics; retire what doesn't perform.
 13. Review autonomy gates: promote consistently-approved action types to autonomous.
 
+## Design principle: single-user system (owner, 2026-07-10)
+
+This system is operated by one person. Therefore: no multi-tenant auth, no user management, no hosted service where a local script works. Everything lives in this repo as readable, editable files — KB entries, scripts, workflows — so any part can be customized directly. Tool adoption verdicts: [kb/reference/open-source-toolchain.md](kb/reference/open-source-toolchain.md).
+
 ## Model strategy (AI cost)
 
 The system is deliberately **model-agnostic**: it is plain files (Markdown KB, Python tools, static site) operated by *any* capable coding agent — nothing is locked to Claude. Options by cost:

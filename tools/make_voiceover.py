@@ -8,19 +8,26 @@ then synthesizes an mp3 per section plus a combined track.
 Usage:
   python tools/make_voiceover.py ops/content/youtube/video-01-package.md
   python tools/make_voiceover.py narration.txt --voice en-US-AndrewNeural
+  python tools/make_voiceover.py narration.txt --engine pocket   # fully offline
+  python tools/make_voiceover.py narration.txt --engine pocket --clone my-voice.wav
 
-Voices: en-US-AndrewNeural (default, natural male), en-US-AvaNeural (female),
-en-GB-RyanNeural. List all: edge-tts --list-voices
+Engines:
+  edge   (default) Microsoft neural voices via edge-tts — best quality, needs
+         internet. Voices: en-US-AndrewNeural (default), en-US-AvaNeural,
+         en-GB-RyanNeural. List: edge-tts --list-voices
+  pocket Kyutai pocket-tts — 100M-param model, runs offline on CPU (MIT).
+         Supports voice cloning via --clone <audio-file> for a consistent
+         channel voice we own. Outputs .wav.
 
-Requires: pip install edge-tts
+Requires: pip install edge-tts pocket-tts
 """
 import argparse
 import asyncio
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
-
-import edge_tts
 
 SECTION_RE = re.compile(r"^\*\*\[(?P<name>[^\]]+)\]\*\*", re.M)
 QUOTE_RE = re.compile(r'^"(.*)"$', re.DOTALL)
@@ -48,8 +55,20 @@ def extract_narration(md_text: str):
     return sections
 
 
-async def synth(text: str, voice: str, out: Path):
-    await edge_tts.Communicate(text, voice, rate="+4%").save(str(out))
+async def synth(text: str, args, out: Path):
+    if args.engine == "pocket":
+        exe = shutil.which("pocket-tts")
+        if not exe:
+            print("pocket-tts not found: pip install pocket-tts", file=sys.stderr)
+            raise SystemExit(1)
+        out = out.with_suffix(".wav")
+        cmd = [exe, "generate", "-q", "--text", text, "--output-path", str(out)]
+        if args.clone:
+            cmd += ["--voice", args.clone]
+        subprocess.run(cmd, check=True)
+    else:
+        import edge_tts
+        await edge_tts.Communicate(text, args.voice, rate="+4%").save(str(out))
     print(f"  wrote {out}")
 
 
@@ -69,10 +88,10 @@ async def run(args):
 
     for i, (name, narration) in enumerate(sections, 1):
         safe = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-        await synth(narration, args.voice, out_dir / f"{i:02d}-{safe}.mp3")
+        await synth(narration, args, out_dir / f"{i:02d}-{safe}.mp3")
 
     combined = " ... ".join(n for _, n in sections)
-    await synth(combined, args.voice, out_dir / "combined.mp3")
+    await synth(combined, args, out_dir / "combined.mp3")
     print(f"Done: {len(sections)} sections -> {out_dir}")
     return 0
 
@@ -80,7 +99,9 @@ async def run(args):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("script", help="video package .md or plain .txt")
-    ap.add_argument("--voice", default="en-US-AndrewNeural")
+    ap.add_argument("--engine", choices=["edge", "pocket"], default="edge")
+    ap.add_argument("--voice", default="en-US-AndrewNeural", help="edge engine voice name")
+    ap.add_argument("--clone", help="pocket engine: audio file of the voice to clone")
     ap.add_argument("--out-dir")
     args = ap.parse_args()
     return asyncio.run(run(args))

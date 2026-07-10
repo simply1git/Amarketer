@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://solostack.25012004.xyz/sitemap-index.xml
+Sitemap: https://amarketer.25012004.xyz/sitemap-index.xml

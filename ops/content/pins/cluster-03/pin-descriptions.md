@@ -11,7 +11,7 @@ Post 1–3 per day (Pinterest's native scheduler can queue the whole batch in on
 
 **Boards to create first:** `Desk Setup Ideas` · `Home Office On A Budget` · `WFH Tips`
 
-**Pin links:** prepend the domain — e.g. `https://solostack.25012004.xyz/posts/desk-upgrades-under-50`.
+**Pin links:** prepend the domain — e.g. `https://amarketer.25012004.xyz/posts/desk-upgrades-under-50`.
 
 | Pin image | Title (≤100 chars) | Description | Link to | Board |
 |---|---|---|---|---|

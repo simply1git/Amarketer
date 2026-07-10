@@ -26,5 +26,8 @@ One line per entry: **id — when to use it.** Load the full entry only when the
 ## tactics/
 - `pinterest-product-roundups` — Track A engine; weekly batch of product pins + roundup hub pages (fast-earning consumer track).
 
+## reference/
+- `open-source-toolchain` — tool adoption verdicts (pocket-tts adopted+tested, STORM method, Agent-Reach conditions); consult before adding tools.
+
 ## learned/
 (empty — agent-written insights land here as status: unverified with metrics; promoted via consolidation pass)
