@@ -27,7 +27,13 @@ RULES = [
      "risky phrase: 'passive income' — reframe as automation/time saved"),
     ("WARN", re.compile(r"\b(get\s+rich|easy\s+money|money\s+while\s+you\s+sleep)\b", re.I),
      "risky phrase: hype language"),
+    ("ERROR", re.compile(r"\b(amazon('s)?\s+cheapest|lowest\s+price\s+on\s+amazon)\b", re.I),
+     "amazon policy: static price guarantee claim prohibited by Amazon ToS"),
 ]
+
+IMAGE_ALT_EMPTY = re.compile(r"!\[\s*\]\(")
+HEADING_H1 = re.compile(r"^#\s+[^#]", re.M)
+
 
 AFFILIATE_HINT = re.compile(r"affiliate|/go/|\{HUB_URL\}|#ad", re.I)
 DISCLOSURE_HINT = re.compile(r"affiliate links|#ad|earn (a )?commission", re.I)
@@ -44,7 +50,13 @@ def lint_file(path: Path):
         for severity, pattern, message in RULES:
             if pattern.search(line):
                 problems.append((severity, lineno, message, line.strip()[:90]))
-    # disclosure presence: any publishable file that references affiliate
+        if IMAGE_ALT_EMPTY.search(line):
+            problems.append(("WARN", lineno, "accessibility: markdown image missing descriptive alt text", line.strip()[:90]))
+
+    h1_count = len(HEADING_H1.findall(text))
+    if h1_count > 1 and "site/src/content/posts" in str(path):
+        problems.append(("WARN", 0, f"seo: post contains {h1_count} h1 headings; recommended exactly 1", ""))
+
     # mechanics must contain disclosure language somewhere. Site posts are
     # covered structurally: Disclosure.astro renders above the content whenever
     # frontmatter has `hasAffiliateLinks: true`, so that flag satisfies the rule

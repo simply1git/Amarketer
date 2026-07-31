@@ -7,6 +7,17 @@ site/.astro/
 __pycache__/
 *.pyc
 
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Logs & Scratch
+*.log
+ops/tasks/logs/
+scratch/
+
 # OS / editor
 Thumbs.db
 .DS_Store
+

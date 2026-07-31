@@ -19,6 +19,9 @@ One line per entry: **id — when to use it.** Load the full entry only when the
 - `systeme-io-affiliate` — flagship program; funnel/all-in-one content; ~60% lifetime recurring (unverified).
 - `getresponse-affiliate` — email-marketing content; up to 60% recurring (unverified).
 - `amazon-associates` — Track A product roundups; ~1-4.5% + 24h cookie (unverified); SIGN UP ONLY AFTER pins are clicking (3-sales/180-day rule).
+- `standing-desks` — when drafting electric height-adjustable desk or office ergonomics content; FlexiSpot 5-8% / ShareASale.
+- `mailerlite-affiliate` — when recommending email marketing or newsletter tools; 30% lifetime recurring (unverified).
+
 
 ## offers/
 (empty — populated in Phase 2; every entry here requires valid_until)

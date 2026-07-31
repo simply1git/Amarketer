@@ -207,11 +207,22 @@ def main():
     ap.add_argument("--timeout", type=int, default=3600)
     args = ap.parse_args()
 
-    cmd_template = args.agent_cmd or (
-        "fcc-claude -p {prompt} --dangerously-skip-permissions" if args.runner == "local"
-        else "gemini --yolo -p {prompt}")
+    import shutil
+    has_fcc = shutil.which("fcc-claude") is not None
+    has_gemini = shutil.which("gemini") is not None
+    py_exe = sys.executable.replace("\\", "/")
+
+    if args.agent_cmd:
+        cmd_template = args.agent_cmd
+    elif args.runner == "local" and has_fcc:
+        cmd_template = "fcc-claude -p {prompt} --dangerously-skip-permissions"
+    elif args.runner == "cloud" and has_gemini:
+        cmd_template = "gemini --yolo -p {prompt}"
+    else:
+        cmd_template = f'"{py_exe}" "{REPO / "tools" / "run_openrouter_task.py"}" {{prompt}}'
 
     sh("git", "pull", "--rebase", check=False, capture=True)
+
     requeue_recurring()
     picked = pick_task(args.runner)
     if not picked:
