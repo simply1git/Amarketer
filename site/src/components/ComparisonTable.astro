@@ -1,0 +1,72 @@
+---
+interface Item {
+  name: string;
+  bestFor: string;
+  priceTier: string;
+  verdict: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items = [] } = Astro.props;
+---
+
+<div class="comparison-table-wrap">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Best For</th>
+        <th>Price Band</th>
+        <th>Verdict</th>
+      </tr>
+    </thead>
+    <tbody>
+      {items.map((item) => (
+        <tr>
+          <td><strong>{item.name}</strong></td>
+          <td>{item.bestFor}</td>
+          <td><span class="price-pill">{item.priceTier}</span></td>
+          <td>{item.verdict}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .comparison-table-wrap {
+    overflow-x: auto;
+    margin: 1.8rem 0;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+  }
+  .comparison-table th {
+    background: var(--soft);
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .comparison-table tr:last-child td {
+    border-bottom: none;
+  }
+  .price-pill {
+    background: var(--soft);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+</style>

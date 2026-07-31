@@ -18,8 +18,8 @@ A **self-improving, AI-operated affiliate marketing system** for a solo owner. $
 
 - **KB** (`kb/`) — programs, tactics, policies, learned insights; schema-validated (`tools/validate_kb.py`); entry point [kb/INDEX.md](kb/INDEX.md).
 - **Site** (`site/`) — Astro; posts publish ONLY with frontmatter `status: published` (the owner gate, enforced by the build).
-- **Web admin** — `https://amarketer.25012004.xyz/admin` (Sveltia CMS): approve/edit/create posts, assign Agent Tasks, read the activity log. Auth setup: [ops/ADMIN-SETUP.md](ops/ADMIN-SETUP.md).
-- **Autonomous brains** (no Claude subscription): local free-claude-code runner (Task Scheduler, 20-min) + cloud aider-on-OpenRouter GitHub Action. Task inbox `ops/tasks/` ← /admin. Setup: [ops/BRAIN-SETUP.md](ops/BRAIN-SETUP.md). **Owner chose OpenRouter as the key provider.**
+- **Autonomous brains** (no Claude subscription): local runner + cloud OpenRouter GitHub Action. Task inbox `ops/tasks/`. Setup: [ops/BRAIN-SETUP.md](ops/BRAIN-SETUP.md). **Owner chose OpenRouter as the key provider.**
+
 - **Quality gates on every push:** CI validates KB, lints compliance (income claims/disclosures), builds site ([.github/workflows/ci.yml](.github/workflows/ci.yml)); monthly KB freshness issue.
 - **Production tools:** pin generator (`site/scripts/make-pin.mjs`), voiceover (`tools/make_voiceover.py`, engines: edge-tts online / pocket-tts offline+cloning), report importer (`tools/import_report.py`).
 - **Day-to-day operation:** [ops/RUNBOOK.md](ops/RUNBOOK.md).
@@ -37,8 +37,8 @@ A **self-improving, AI-operated affiliate marketing system** for a solo owner. $
 
 **Activation (one-time):**
 - [ ] OpenRouter key → GitHub repo secret `OPENROUTER_API_KEY` → test via Actions → "Run workflow" ([BRAIN-SETUP](ops/BRAIN-SETUP.md) §B)
-- [ ] Local brain: install uv + free-claude-code, OpenRouter backend, register Task Scheduler ([BRAIN-SETUP](ops/BRAIN-SETUP.md) §C)
-- [ ] Admin login: deploy sveltia-cms-auth worker + GitHub OAuth app, then put the worker URL into `site/public/admin/config.yml` `base_url` ([ADMIN-SETUP](ops/ADMIN-SETUP.md))
+- [ ] Local brain: install uv, OpenRouter backend, register Task Scheduler ([BRAIN-SETUP](ops/BRAIN-SETUP.md) §C)
+
 - [ ] Pinterest: finish claim of `amarketer.25012004.xyz` (tag is live — just click Verify), create boards `Desk Setup Ideas`, `Home Office On A Budget`, `WFH Tips`
 
 **Content go-live:**

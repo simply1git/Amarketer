@@ -18,7 +18,21 @@ const jsonLd = {
   description: post.data.description,
   datePublished: post.data.pubDate.toISOString(),
   ...(post.data.updatedDate && { dateModified: post.data.updatedDate.toISOString() }),
-  author: { '@type': 'Organization', name: 'SoloStack' },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': new URL(Astro.url.pathname, Astro.site).toString(),
+  },
+  author: {
+    '@type': 'Organization',
+    name: 'SoloStack',
+    url: 'https://amarketer.25012004.xyz',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'SoloStack',
+    url: 'https://amarketer.25012004.xyz',
+  },
+  inLanguage: 'en-US',
 };
 ---
 <Base title={post.data.title} description={post.data.description}>

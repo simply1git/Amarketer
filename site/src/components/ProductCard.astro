@@ -1,0 +1,125 @@
+---
+interface Props {
+  name: string;
+  badge?: string;
+  priceBand?: string;
+  pros?: string[];
+  cons?: string[];
+  link?: string;
+}
+
+const {
+  name,
+  badge = 'Recommended',
+  priceBand = 'Under $50',
+  pros = [],
+  cons = [],
+  link = '#',
+} = Astro.props;
+---
+
+<div class="product-card">
+  <div class="card-header">
+    <span class="badge">{badge}</span>
+    <span class="price">{priceBand}</span>
+  </div>
+  <h3 class="product-name">{name}</h3>
+  
+  <div class="pros-cons">
+    {pros.length > 0 && (
+      <div class="pros">
+        <strong>Pros</strong>
+        <ul>
+          {pros.map((p) => <li>✓ {p}</li>)}
+        </ul>
+      </div>
+    )}
+    {cons.length > 0 && (
+      <div class="cons">
+        <strong>Cons</strong>
+        <ul>
+          {cons.map((c) => <li>✗ {c}</li>)}
+        </ul>
+      </div>
+    )}
+  </div>
+
+  <div class="card-actions">
+    <a href={link} class="btn-cta" target="_blank" rel="noopener sponsored">
+      Check Price &amp; Availability
+    </a>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.4rem;
+    background: var(--card);
+    margin: 1.8rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+  }
+  .badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .price {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .product-name {
+    margin: 0 0 1rem;
+    font-size: 1.35rem;
+    color: var(--ink);
+  }
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.92rem;
+  }
+  @media (max-width: 550px) {
+    .pros-cons { grid-template-columns: 1fr; }
+  }
+  .pros strong { color: #16a34a; }
+  .cons strong { color: #dc2626; }
+  .pros ul, .cons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+  }
+  .pros li, .cons li {
+    margin-bottom: 0.25rem;
+    color: var(--muted);
+  }
+  .btn-cta {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: var(--accent);
+    color: #ffffff !important;
+    font-weight: 700;
+    padding: 0.75rem 1.2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .btn-cta:hover {
+    background: var(--accent-ink);
+  }
+</style>
