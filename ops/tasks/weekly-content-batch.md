@@ -1,12 +1,12 @@
 ---
 title: Weekly content batch (Track A)
-status: todo
+status: in-progress
 priority: normal
 runner: any
 recurring: weekly
 created: 2026-07-10
+claimed_by: cloud
 ---
-
 Produce this week's Track A batch per [kb/tactics/pinterest-product-roundups.md](../../kb/tactics/pinterest-product-roundups.md) and [ops/content/cluster-03-desk-gear-pinterest.md](../content/cluster-03-desk-gear-pinterest.md):
 
 1. Check which roundup hub pages already exist in `site/src/content/posts/` (cluster `desk-gear`). Pick the next 1–2 themes NOT yet covered (candidate pool: desk lighting, monitor setups, keyboard/mouse picks, desk plants & air, noise control on a budget, laptop accessories for travel, planner/stationery setups).
