@@ -1,12 +1,12 @@
 ---
 title: Monthly learning loop (consolidation pass)
-status: todo
+status: in-progress
 priority: normal
 runner: any
 recurring: monthly
 created: 2026-07-10
+claimed_by: local
 ---
-
 Run the learning loop per CLAUDE.md:
 
 1. Read any new files in `ops/reports/` since the last run (imported performance CSVs/markdown). If none exist, note that in the activity log body of this task and finish.
