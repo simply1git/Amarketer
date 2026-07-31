@@ -28,9 +28,12 @@ One line per entry: **id — when to use it.** Load the full entry only when the
 
 ## tactics/
 - `pinterest-product-roundups` — Track A engine; weekly batch of product pins + roundup hub pages (fast-earning consumer track).
+- `saas-recurring-engine` — high-ticket recurring revenue SaaS engine (30-60% MRR).
+- `faceless-video-funnel` — 30-60s short-form faceless video script architecture for YouTube Shorts & Reels.
 
 ## reference/
 - `open-source-toolchain` — tool adoption verdicts (pocket-tts adopted+tested, STORM method, Agent-Reach conditions); consult before adding tools.
 
 ## learned/
-(empty — agent-written insights land here as status: unverified with metrics; promoted via consolidation pass)
+- `2026-profitable-affiliate-models` — 2026 research breakdown of top 5 high-converting affiliate marketing models.
+
