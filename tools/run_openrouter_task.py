@@ -46,49 +46,53 @@ def query_openrouter(prompt: str) -> str:
     }
 
     last_error = None
-    # Try preferred model and fallbacks
-    for model in MODELS:
-        payload = {
-            "model": model,
-            "messages": [
-                {
-                    "role": "system",
-                    "content": (
-                        "You are an autonomous affiliate marketing AI assistant operating the SoloStack website. "
-                        "Adhere strictly to FTC disclosure requirements, prohibit income claims, use verified KB terms, "
-                        "and produce content with status: draft."
-                    )
-                },
-                {"role": "user", "content": prompt}
-            ],
-            "temperature": 0.3,
-            "max_tokens": 4096,
-        }
+    import time
+    for attempt in range(3):
+        # Try preferred model and fallbacks
+        for model in MODELS:
+            payload = {
+                "model": model,
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": (
+                            "You are an autonomous affiliate marketing AI assistant operating the SoloStack website. "
+                            "Adhere strictly to FTC disclosure requirements, prohibit income claims, use verified KB terms, "
+                            "and produce content with status: draft."
+                        )
+                    },
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": 0.3,
+                "max_tokens": 4096,
+            }
 
-        req = urllib.request.Request(
-            "https://openrouter.ai/api/v1/chat/completions",
-            data=json.dumps(payload).encode("utf-8"),
-            headers=headers,
-            method="POST"
-        )
+            req = urllib.request.Request(
+                "https://openrouter.ai/api/v1/chat/completions",
+                data=json.dumps(payload).encode("utf-8"),
+                headers=headers,
+                method="POST"
+            )
 
-        try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                choices = data.get("choices", [])
-                if choices and "message" in choices[0]:
-                    content = choices[0]["message"].get("content", "").strip()
-                    if content:
-                        return content
-        except urllib.error.HTTPError as e:
-            err_body = e.read().decode("utf-8", errors="replace")
-            last_error = f"HTTP {e.code}: {err_body}"
-            print(f"[OpenRouter] Model {model} failed ({e.code}), trying next model...", file=sys.stderr)
-        except Exception as e:
-            last_error = str(e)
-            print(f"[OpenRouter] Model {model} error: {e}, trying next model...", file=sys.stderr)
+            try:
+                with urllib.request.urlopen(req, timeout=120) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    choices = data.get("choices", [])
+                    if choices and "message" in choices[0]:
+                        content = choices[0]["message"].get("content", "").strip()
+                        if content:
+                            return content
+            except urllib.error.HTTPError as e:
+                err_body = e.read().decode("utf-8", errors="replace")
+                last_error = f"HTTP {e.code}: {err_body}"
+                print(f"[OpenRouter] Model {model} failed ({e.code}), trying next model...", file=sys.stderr)
+            except Exception as e:
+                last_error = str(e)
+                print(f"[OpenRouter] Model {model} error: {e}, trying next model...", file=sys.stderr)
+        time.sleep(2)
 
-    raise RuntimeError(f"OpenRouter query failed across all models. Last error: {last_error}")
+    raise RuntimeError(f"OpenRouter query failed across all models after retries. Last error: {last_error}")
+
 
 def main():
     if len(sys.argv) < 2:

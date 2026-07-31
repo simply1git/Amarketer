@@ -17,8 +17,9 @@ DEFAULT_PATHS = ["ops/content", "site/src/content"]
 RULES = [
     ("ERROR", re.compile(r"\b(make|earn|making|earning|made|earned)\s+(me\s+|you\s+)?\$\s?\d", re.I),
     "income claim: earning + dollar amount (no-income-claims)"),
-    ("ERROR", re.compile(r"\$\s?[\d,]+\s*(/|\bper\s+|\ba\s+)(day|week|month|year)\b", re.I),
+    ("ERROR", re.compile(r"\b(make|earn|earning|made|earned|revenue|income|profit|payout)\b.*\$\s?[\d,]+\s*(/|\bper\s+|\ba\s+)(day|week|month|year)\b", re.I),
      "income claim: $X per period (no-income-claims)"),
+
     ("ERROR", re.compile(r"\b(quit\s+your\s+job|replace\s+your\s+(salary|income)|financial\s+freedom\s+guaranteed)\b", re.I),
      "income claim: lifestyle-outcome promise (no-income-claims)"),
     ("ERROR", re.compile(r"\bguaranteed\s+(income|earnings|profit|results)\b", re.I),
