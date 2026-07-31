@@ -2,7 +2,7 @@
 title: "7 Desk Upgrades Under $50 That Actually Matter"
 description: "The seven cheap desk upgrades that make a real difference for working at home — what to look for, honest price bands, and what to skip."
 pubDate: 2026-07-10
-status: draft
+status: published
 targetKeyword: "desk upgrades under 50"
 cluster: desk-gear
 offers: [amazon-associates]

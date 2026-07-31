@@ -2,7 +2,7 @@
 title: "The Small-Desk Home Office Setup (Under $150 Total)"
 description: "A complete work-from-home setup for tight spaces — desk placement, the five items worth buying, and a realistic $150 budget breakdown."
 pubDate: 2026-07-10
-status: draft
+status: published
 targetKeyword: "small desk home office setup"
 cluster: desk-gear
 offers: [amazon-associates]
@@ -35,4 +35,5 @@ You don't need a spare room, a corner office, or $1,000. A genuinely good work s
 
 If you can only spend $50 this month: laptop stand, keyboard, mouse. That's the setup's spine. Everything else is comfort added one paycheck at a time — which is exactly how a one-person business should buy equipment anyway.
 
-*Product links with current prices are being added to this page — every pick will follow the criteria above.*
+*Product links with current prices are being added to this page — every pick will follow the criteria above. See also our guide on [10-minute cable management](/posts/cable-management-10-minutes).*
+

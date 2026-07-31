@@ -2,7 +2,7 @@
 title: "Cable Management That Takes 10 Minutes (Not a Weekend)"
 description: "The lazy, effective version of desk cable management: one tray, three clips, one velcro roll — about $20 and ten actual minutes."
 pubDate: 2026-07-10
-status: draft
+status: published
 targetKeyword: "easy desk cable management"
 cluster: desk-gear
 offers: [amazon-associates]
@@ -32,4 +32,5 @@ Cable sleeves (look great, fight you on every change), in-wall routing (you rent
 
 The floor-level difference is bigger than it sounds: a clear floor means vacuuming happens, feet stretch, and the desk corner stops feeling like a server closet.
 
-*Product links with current prices are being added to this page — every pick will follow the criteria above.*
+*Product links with current prices are being added to this page — every pick will follow the criteria above. See also our guide on [desk upgrades under $50](/posts/desk-upgrades-under-50).*
+

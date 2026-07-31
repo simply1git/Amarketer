@@ -2,7 +2,7 @@
 title: "The Ergonomic Starter Kit Nobody Overspends On"
 description: "Four items under $30 each that fix most desk discomfort — and the honest order to buy them before considering a $400 chair."
 pubDate: 2026-07-10
-status: draft
+status: published
 targetKeyword: "budget ergonomic desk setup"
 cluster: desk-gear
 offers: [amazon-associates]
