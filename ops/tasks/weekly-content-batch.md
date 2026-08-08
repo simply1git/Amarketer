@@ -1,11 +1,11 @@
 ---
 title: Weekly content batch (Track A)
-status: in-progress
+status: done
 priority: normal
 runner: any
 recurring: weekly
 created: 2026-07-10
-last_run: 2026-07-31T17:07
+last_run: 2026-08-08T04:36
 claimed_by: cloud
 ---
 Produce this week's Track A batch per [kb/tactics/pinterest-product-roundups.md](../../kb/tactics/pinterest-product-roundups.md) and [ops/content/cluster-03-desk-gear-pinterest.md](../content/cluster-03-desk-gear-pinterest.md):
