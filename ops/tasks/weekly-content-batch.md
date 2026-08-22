@@ -1,6 +1,6 @@
 ---
 title: Weekly content batch (Track A)
-status: done
+status: in-progress
 priority: normal
 runner: any
 recurring: weekly
