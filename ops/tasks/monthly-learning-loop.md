@@ -1,11 +1,11 @@
 ---
 title: Monthly learning loop (consolidation pass)
-status: in-progress
+status: done
 priority: normal
 runner: any
 recurring: monthly
 created: 2026-07-10
-last_run: 2026-07-31T14:35
+last_run: 2026-08-30T18:45
 claimed_by: cloud
 ---
 Run the learning loop per CLAUDE.md:
