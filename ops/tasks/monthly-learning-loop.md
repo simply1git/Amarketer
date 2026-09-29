@@ -1,6 +1,6 @@
 ---
 title: Monthly learning loop (consolidation pass)
-status: done
+status: in-progress
 priority: normal
 runner: any
 recurring: monthly
